@@ -1,17 +1,21 @@
-<h1>Fake Store</h1>
-<h2>Catálogo de productos</h2>
+<header class="cabecera">
+  <h1>Fake Store</h1>
+  <h2>Catálogo de productos</h2>
+</header>
 
-@for (product of products; track product.id) {
-  <article>
-    <img [src]="product.image" [alt]="product.title">
-    <h3>{{ product.title }}</h3>
-    <p>
-      Categoría:
-      {{ product.category }}
-    </p>
-    <p>
-      Precio:
-      {{ product.price }} €
-    </p>
-  </article>
-}
+<main class="catalogo">
+  @for (product of products; track product.id) {
+    <article class="tarjeta">
+      <img [src]="product.image" [alt]="product.title">
+      <h3>{{ product.title }}</h3>
+      <p class="categoria">
+        Categoría:
+        {{ product.category }}
+      </p>
+      <p class="precio">
+        Precio:
+        {{ product.price | number: '1.2-2' }} €
+      </p>
+    </article>
+  }
+</main>
